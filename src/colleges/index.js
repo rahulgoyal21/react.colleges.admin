@@ -65,12 +65,124 @@ const Colleges = () => {
       }}
     >
       <div style={styles.cardRoot}>
-        <img
-          style={{
-            background: 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)'
-          }}
-          src={process.env.PUBLIC_URL + '/college.jpg'}
-        />
+        <div>
+          <div style={{ position: 'relative' }}>
+            <img
+              style={{
+                background: 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)'
+              }}
+              src={process.env.PUBLIC_URL + '/college.jpg'}
+            />
+
+            <div
+              style={{
+                position: 'absolute',
+                left: '25px',
+                height: '34px',
+                bottom: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'stretch',
+                fontSize: '13.5px'
+              }}
+            >
+              <div
+                style={{
+                  width: '135px',
+                  backgroundColor: '#ffffff',
+                  height: '17px',
+                  borderTopRightRadius: '25px',
+                  borderBottomRightRadius: '25px',
+                  borderTopLeftRadius: '25px',
+                  borderBottomLeftRadius: '25px',
+                  padding: '11px 18px 10px 17px'
+                }}
+              >
+                Best college 2018
+              </div>
+              <div
+                style={{
+                  width: '93px',
+                  backgroundColor: '#ffffff',
+                  height: '17px',
+                  borderTopRightRadius: '25px',
+                  borderBottomRightRadius: '25px',
+                  borderTopLeftRadius: '25px',
+                  borderBottomLeftRadius: '25px',
+                  padding: '11px 18px 10px 17px',
+                  marginLeft: '10px'
+                }}
+              >
+                2kms away
+              </div>
+              <div
+                style={{
+                  color: '#ffffff',
+                  fontWeight: 'bold',
+                  marginLeft: '270px'
+                }}
+              >
+                #7 in 260 colleges in north campus
+              </div>
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                right: '25px',
+                top: '40px',
+                fontSize: '13.5px',
+                color: '#ffffff',
+                fontWeight: 'bold'
+              }}
+            >
+              <div
+                style={{
+                  height: '53px',
+                  width: '75px',
+                  backgroundColor: '#f5a626',
+                  borderRadius: '3.8px',
+                  padding: '9px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexDirection: 'column'
+                }}
+              >
+                <span
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span style={{ fontWeight: '700', fontSize: '22px' }}>
+                    3.9
+                  </span>
+                  /5<br></br>
+                </span>{' '}
+                Very Good
+              </div>
+            </div>
+            <div
+              style={{
+                width: '130px',
+                height: 'auto',
+                backgroundColor: '#68a7ff',
+                position: 'absolute',
+                right: '0',
+                top: '-23px',
+                clipPath: 'polygon(15% 50%,0 0,100% 0,100% 100%,0 100%)',
+                color: '#ffffff',
+                textAlign: 'center',
+                padding: '11px 31px 11px 48px',
+                fontSize: '15px',
+                fontWeight: '700'
+              }}
+            >
+              PROMOTED
+            </div>
+          </div>
+        </div>
         <div
           style={{
             display: 'flex',
