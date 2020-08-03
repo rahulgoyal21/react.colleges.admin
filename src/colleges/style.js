@@ -7,7 +7,13 @@ export const useStyles = () => ({
   },
   cardRoot: {
     boxShadow: '0 10px 20px -6px #000000',
-    margin: '50px'
+    margin: '1.5rem'
+  },
+  collegeIndiaText: {
+    width: '100%',
+    textAlign: 'left',
+    margin: '1.5rem',
+    paddingLeft: '2rem'
   },
   imgageOverlay: {
     position: 'absolute',

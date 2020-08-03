@@ -8,19 +8,23 @@ const Colleges = () => {
   //Function to count star on the basis of rating given
   const getStars = (rating) => {
     let stars = [];
-    for (let i = 0; i < Math.floor(rating); i++) {
+    let i = 0;
+    for (i = 0; i < Math.floor(rating); i++) {
       stars.push(
         <img
+          key={i}
           style={styles.ratingIcon}
           src='https://img.icons8.com/material-sharp/24/000000/star.png'
           alt='full star'
         />
       );
     }
+    let index = i;
     rating = rating - Math.floor(rating);
     if (rating)
       stars.push(
         <img
+          key={rating ? index : null}
           style={styles.ratingIcon}
           src='https://img.icons8.com/material-sharp/24/000000/star-half-empty.png'
           alt='half star'
@@ -29,15 +33,18 @@ const Colleges = () => {
     while (stars.length < 5) {
       stars.push(
         <img
+          key={rating ? index + 1 : index}
           style={styles.ratingIcon}
           src='https://img.icons8.com/material-outlined/24/000000/star.png'
           alt='empty star'
         />
       );
+      index++;
     }
     return <div style={styles.ratingContainer}>{stars}</div>;
   };
 
+  //Function to get college card on basis of .JSON file
   const getCollegeCard = (item) => {
     const offerText1 = item.offertext.split(' ')[0];
     const offerText2 = item.offertext.split(' ')[1].substring(0, 2);
@@ -46,8 +53,9 @@ const Colleges = () => {
     const offerText5 = item.offertext.split(' ')[6];
     const offerText6 = item.offertext.split(' ').slice(7, 10).join(' ');
     const offerText7 = item.offertext.split(' ')[10];
+
     return (
-      <div style={styles.cardRoot}>
+      <div style={styles.cardRoot} key={item.college_name}>
         <div style={{ position: 'relative' }}>
           <img src={process.env.PUBLIC_URL + '/college.jpg'} alt='college' />
           <div style={styles.imgageOverlay}></div>
@@ -73,7 +81,6 @@ const Colleges = () => {
             <div style={styles.imageOverlayPromotedStrip}>PROMOTED</div>
           )}
         </div>
-
         <div style={styles.collegeNameContainer}>
           <div style={styles.collegeNameAndStarBox}>
             <div style={styles.collegeNameStyling}>{item.college_name}</div>
@@ -139,9 +146,12 @@ const Colleges = () => {
       </div>
     );
   };
-  colleges.map((item) => console.log('Colleges', item));
   const collegeDataCollection = colleges.map((item) => getCollegeCard(item));
-
-  return <div style={styles.root}>{collegeDataCollection}</div>;
+  return (
+    <div style={styles.root}>
+      <div style={styles.collegeIndiaText}>Colleges In North India</div>
+      {collegeDataCollection}
+    </div>
+  );
 };
 export default Colleges;
