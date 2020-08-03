@@ -56,9 +56,12 @@ const Colleges = () => {
 
     return (
       <div style={styles.cardRoot} key={item.college_name}>
+        {/*College image as background and overlaty content */}
         <div style={{ position: 'relative' }}>
           <img src={process.env.PUBLIC_URL + '/college.jpg'} alt='college' />
           <div style={styles.imgageOverlay}></div>
+
+          {/*Image overlay tags and Ranking text */}
           <div style={styles.imageOverlayContentBottom}>
             <div style={styles.imageOverlayContentBottomLeft}>
               {item.tags[0]}
@@ -68,6 +71,8 @@ const Colleges = () => {
             </div>
             <div style={styles.imageOverlayTextWhite}># {item.ranking}</div>
           </div>
+
+          {/*Image overlay yellow box */}
           <div style={styles.imageOverlayYellowContainer}>
             <div style={styles.imageOverlayBoxYellow}>
               <span style={styles.imageOverlayBoxYellowContent}>
@@ -77,10 +82,14 @@ const Colleges = () => {
               {item.rating_remarks}
             </div>
           </div>
+
+          {/*Image overlay promoted strip*/}
           {item.promoted && (
             <div style={styles.imageOverlayPromotedStrip}>PROMOTED</div>
           )}
         </div>
+
+        {/*College Name, stars, Discount,Orignial price */}
         <div style={styles.collegeNameContainer}>
           <div style={styles.collegeNameAndStarBox}>
             <div style={styles.collegeNameStyling}>{item.college_name}</div>
@@ -96,6 +105,8 @@ const Colleges = () => {
             </div>
           </div>
         </div>
+
+        {/*Nearest place and discounted price */}
         <div style={styles.addressContainer}>
           <div style={styles.darkGrey}>
             {item.nearest_place[0]}
@@ -103,7 +114,11 @@ const Colleges = () => {
           </div>
           <div style={styles.discountedPrice}>₹ {item.discounted_fees}</div>
         </div>
+
+        {/*Semester fees */}
         <div style={styles.semesterInfoStyling}>{item.fees_cycle}</div>
+
+        {/*Match, Nearest place */}
         <div style={styles.matchInfoContainer}>
           <div style={styles.matchInfoContent}>
             93% Match :&nbsp;
@@ -127,6 +142,8 @@ const Colleges = () => {
             </span>
           </div>
         </div>
+
+        {/*Offer text and Amenties */}
         <div style={styles.discountStripContainer}>
           <div style={styles.discountStripRoundedStyle}>
             <span style={{ fontWeight: 'normal' }}>{offerText1}</span>
@@ -146,7 +163,10 @@ const Colleges = () => {
       </div>
     );
   };
+
+  //storing college data from .JSON file
   const collegeDataCollection = colleges.map((item) => getCollegeCard(item));
+
   return (
     <div style={styles.root}>
       <div style={styles.collegeIndiaText}>Colleges In North India</div>
