@@ -4,10 +4,21 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### `Steps to run the project locally on localhost:3000
+
+1. Clone the project by running "https://github.com/rahulgoyal21/react.colleges.admin.git" in your terminal
+2. Go to project directory by running "cd react.colleges.admin"
+3. Do node_modules install by running "npm install"
+4. Run the peroject locally by running "npm start"
+
+Project will be running locally on http://localhost:3000
+
+### !! Happy Coding !!
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
