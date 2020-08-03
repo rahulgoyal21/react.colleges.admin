@@ -1,5 +1,5 @@
 import React from 'react';
-import { colleges } from '../collegeData';
+import { colleges, item } from '../collegeData';
 
 const useStyles = () => ({
   root: {
@@ -228,12 +228,21 @@ const useStyles = () => ({
     backgroundColor: '#37b396',
     position: 'absolute',
     top: '13px',
-    left: '175px'
+    left: '162px'
   }
 });
 
 const Colleges = () => {
   const styles = useStyles();
+
+  const offerText1 = item.offertext.split(' ')[0];
+  const offerText2 = item.offertext.split(' ')[1].substring(0, 2);
+  const offerText3 = item.offertext.split(' ')[1].substring(2, 7);
+  const offerText4 = item.offertext.split(' ').slice(2, 6).join(' ');
+  const offerText5 = item.offertext.split(' ')[6];
+  const offerText6 = item.offertext.split(' ').slice(7, 10).join(' ');
+  const offerText7 = item.offertext.split(' ')[10];
+
   const getStars = (rating) => {
     let stars = [];
 
@@ -276,71 +285,87 @@ const Colleges = () => {
           <div style={styles.imgageOverlay}></div>
           <div style={styles.imageOverlayContentBottom}>
             <div style={styles.imageOverlayContentBottomLeft}>
-              Best college 2018
+              {item.tags[0]}
             </div>
-            <div style={styles.imageOverlayContentBottomRight}>2kms away</div>
-            <div style={styles.imageOverlayTextWhite}>
-              #7 in 260 colleges in north campus
+            <div style={styles.imageOverlayContentBottomRight}>
+              {item.tags[1]}
             </div>
+            <div style={styles.imageOverlayTextWhite}># {item.ranking}</div>
           </div>
           <div style={styles.imageOverlayYellowContainer}>
             <div style={styles.imageOverlayBoxYellow}>
               <span style={styles.imageOverlayBoxYellowContent}>
-                <span style={styles.collegeRatingStyling}>3.9</span>
+                <span style={styles.collegeRatingStyling}>{item.rating}</span>
                 /5<br></br>
               </span>{' '}
-              Very Good
+              {item.rating_remarks}
             </div>
           </div>
-          <div style={styles.imageOverlayPromotedStrip}>PROMOTED</div>
+          {item.promoted && (
+            <div style={styles.imageOverlayPromotedStrip}>PROMOTED</div>
+          )}
         </div>
 
         <div style={styles.collegeNameContainer}>
           <div style={styles.collegeNameAndStarBox}>
-            <div style={styles.collegeNameStyling}>
-              HansRaj College Delhi University
-            </div>
-            {getStars(4)}
+            <div style={styles.collegeNameStyling}>{item.college_name}</div>
+            {getStars(item.rating)}
           </div>
           <div style={styles.originalPriceContainer}>
             <div style={styles.originalPriceSTyling}>
-              ₹<del>6,8756</del>
+              ₹<del>{item.original_fees}</del>
             </div>
             <div style={styles.discountContainer}>
               <div style={styles.discountDotStyling}></div>
-              <div style={styles.discountTextStyling}>20</div>
+              <div style={styles.discountTextStyling}>{item.discount}</div>
             </div>
           </div>
         </div>
         <div style={styles.addressContainer}>
           <div style={styles.darkGrey}>
-            Near Vishwavidyalya Metro Station{' '}
-            <span style={styles.fadedGrey}> | 2 Kms away from bus stand</span>
+            {item.nearest_place[0]}
+            <span style={styles.fadedGrey}> | {item.nearest_place[1]}</span>
           </div>
-          <div style={styles.discountedPrice}>₹ 5,768</div>
+          <div style={styles.discountedPrice}>₹ {item.discounted_fees}</div>
         </div>
-        <div style={styles.semesterInfoStyling}>Per Semester (3months)</div>
+        <div style={styles.semesterInfoStyling}>{item.fees_cycle}</div>
         <div style={styles.matchInfoContainer}>
           <div style={styles.matchInfoContent}>
-            93% Match : <span style={styles.darkGreyBold}>2.5kms</span>{' '}
-            <span style={styles.fadedGrey}>from GTB Nagar</span>,{' '}
-            <span style={styles.darkGreyBold}>7 Kms</span>{' '}
-            <span style={styles.fadedGrey}>from Rajiv Chowk</span>
+            93% Match :&nbsp;
+            <span style={styles.darkGreyBold}>
+              {item.famous_nearest_places.split(',')[0].split(' ')[0]}&nbsp;
+            </span>
+            <span style={styles.fadedGrey}>
+              {item.famous_nearest_places.split(',')[0].split(' ')[1]}&nbsp;
+              {item.famous_nearest_places.split(',')[0].split(' ')[2]}&nbsp;
+              {item.famous_nearest_places.split(',')[0].split(' ')[3]}
+            </span>
+            ,&nbsp;
+            <span style={styles.darkGreyBold}>
+              {item.famous_nearest_places.split(',')[1].split(' ')[1]}&nbsp;
+              {item.famous_nearest_places.split(',')[1].split(' ')[2]}&nbsp;
+            </span>
+            <span style={styles.fadedGrey}>
+              {item.famous_nearest_places.split(',')[1].split(' ')[3]}&nbsp;
+              {item.famous_nearest_places.split(',')[1].split(' ')[4]}
+              &nbsp;{item.famous_nearest_places.split(',')[1].split(' ')[5]}
+            </span>
           </div>
         </div>
         <div style={styles.discountStripContainer}>
           <div style={styles.discountStripRoundedStyle}>
-            <span style={{ fontWeight: 'normal' }}>Flat</span>&nbsp;Rs&nbsp;
-            <span style={{ color: '#4bb89e' }}>2,000&nbsp;</span>{' '}
-            <span>off + upto Rs&nbsp;</span>{' '}
-            <span style={{ color: '#4bb89e' }}>500&nbsp;</span> wallet! to
-            avail...&nbsp;
-            <span style={{ color: '#1999d2' }}>LOGIN</span>
+            <span style={{ fontWeight: 'normal' }}>{offerText1}</span>
+            &nbsp;{offerText2}&nbsp;
+            <span style={{ color: '#4bb89e' }}>{offerText3}&nbsp;</span>
+            <span>{offerText4}&nbsp;</span>
+            <span style={{ color: '#4bb89e' }}>{offerText5}&nbsp;</span>
+            {offerText6}&nbsp;
+            <span style={{ color: '#1999d2' }}>{offerText7}</span>
           </div>
           <div style={styles.facilitiesContainer}>
-            Free Cancellation&ensp;
+            {item.amenties[0]}
             <div style={styles.facilitiesDotStyling}></div>
-            &ensp;Free Wi-Fi
+            &ensp; {item.amenties[1]}
           </div>
         </div>
       </div>
