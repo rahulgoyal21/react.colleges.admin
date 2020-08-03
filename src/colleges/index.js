@@ -9,6 +9,8 @@ const Colleges = () => {
   const getStars = (rating) => {
     let stars = [];
     let i = 0;
+
+    //For complete star
     for (i = 0; i < Math.floor(rating); i++) {
       stars.push(
         <img
@@ -20,6 +22,8 @@ const Colleges = () => {
       );
     }
     let index = i;
+
+    //For half star
     rating = rating - Math.floor(rating);
     if (rating)
       stars.push(
@@ -30,6 +34,8 @@ const Colleges = () => {
           alt='half star'
         />
       );
+
+    //For empty star
     while (stars.length < 5) {
       stars.push(
         <img
