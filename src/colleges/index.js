@@ -67,13 +67,19 @@ const Colleges = () => {
       <div style={styles.cardRoot}>
         <div>
           <div style={{ position: 'relative' }}>
-            <img
+            <img src={process.env.PUBLIC_URL + '/college.jpg'} />
+            <div
               style={{
-                background: 'linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)'
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)'
               }}
-              src={process.env.PUBLIC_URL + '/college.jpg'}
-            />
-
+            ></div>
             <div
               style={{
                 position: 'absolute',
@@ -170,7 +176,7 @@ const Colleges = () => {
                 backgroundColor: '#68a7ff',
                 position: 'absolute',
                 right: '0',
-                top: '-23px',
+                top: '-19px',
                 clipPath: 'polygon(15% 50%,0 0,100% 0,100% 100%,0 100%)',
                 color: '#ffffff',
                 textAlign: 'center',
