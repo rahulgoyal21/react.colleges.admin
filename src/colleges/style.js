@@ -1,24 +1,25 @@
 export const useStyles = () => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center'
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, minmax(auto,auto)',
+    gridGap: '2rem'
+  },
+  collegeImageStyle: {
+    width: '100%',
+    height: '100%'
   },
   cardRoot: {
-    boxShadow: '0 10px 20px -6px #000000',
-    margin: '1.5rem'
+    boxShadow: '0 10px 20px -6px #000000'
   },
   collegeIndiaText: {
     width: '100%',
     textAlign: 'left',
-    margin: '1.5rem',
-    paddingLeft: '2rem'
+    marginBottom: '1rem'
   },
   imgageOverlay: {
     position: 'absolute',
-    width: '100%',
-    height: '100%',
+    width: 'inherit',
+    height: 'inherit',
     top: 0,
     bottom: 0,
     left: 0,
@@ -28,11 +29,13 @@ export const useStyles = () => ({
   imageOverlayContentBottom: {
     position: 'absolute',
     left: '25px',
-    height: '34px',
+
     bottom: '20px',
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 4fr',
+
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'stretch',
     fontSize: '13.5px'
   },
   imageOverlayContentBottomLeft: {
@@ -59,7 +62,8 @@ export const useStyles = () => ({
   imageOverlayTextWhite: {
     color: '#ffffff',
     fontWeight: 'bold',
-    marginLeft: '270px'
+    justifySelf: 'flex-end',
+    paddingRight: '1rem'
   },
   imageOverlayYellowContainer: {
     position: 'absolute',
@@ -200,7 +204,8 @@ export const useStyles = () => ({
     padding: '10px 10px 15px 0',
     justifyContent: 'space-between',
     alignItems: 'center',
-    display: 'flex'
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2,minmax(auto,auto)'
   },
   discountStripRoundedStyle: {
     width: '347px',
@@ -214,24 +219,24 @@ export const useStyles = () => ({
     alignItems: 'center',
     color: '#444444',
     fontWeight: 'bold',
-    padding: '0 21px 0 17px'
+    padding: '0 1rem 0 1rem'
   },
   facilitiesContainer: {
     color: '#37b396',
     fontWeight: 'bold',
     fontSize: '600',
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: '1fr 5px auto',
+    gridGap: '0.5rem',
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'relative'
+    justifyItems: 'flex-end',
+    paddingLeft: '2rem'
   },
   facilitiesDotStyling: {
     height: '5px',
     width: '5px',
     borderRadius: '50%',
-    backgroundColor: '#37b396',
-    position: 'absolute',
-    top: '13px',
-    left: '162px'
+    backgroundColor: '#37b396'
   }
 });

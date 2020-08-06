@@ -64,7 +64,11 @@ const Colleges = () => {
       <div style={styles.cardRoot} key={item.college_name}>
         {/*College image as background and overlaty content */}
         <div style={{ position: 'relative' }}>
-          <img src={process.env.PUBLIC_URL + '/college.jpg'} alt='college' />
+          <img
+            src={process.env.PUBLIC_URL + '/college.jpg'}
+            alt='college'
+            style={styles.collegeImageStyle}
+          />
           <div style={styles.imgageOverlay}></div>
 
           {/*Image overlay tags and Ranking text */}
@@ -161,9 +165,9 @@ const Colleges = () => {
             <span style={{ color: '#1999d2' }}>{offerText7}</span>
           </div>
           <div style={styles.facilitiesContainer}>
-            {item.amenties[0]}
+            <div>{item.amenties[0]}</div>
             <div style={styles.facilitiesDotStyling}></div>
-            &ensp; {item.amenties[1]}
+            <div>{item.amenties[1]}</div>
           </div>
         </div>
       </div>
@@ -174,9 +178,9 @@ const Colleges = () => {
   const collegeDataCollection = colleges.map((item) => getCollegeCard(item));
 
   return (
-    <div style={styles.root}>
+    <div style={{ margin: '2rem' }}>
       <div style={styles.collegeIndiaText}>Colleges In North India</div>
-      {collegeDataCollection}
+      <div style={styles.root}>{collegeDataCollection}</div>
     </div>
   );
 };
